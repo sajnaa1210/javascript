@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+</head>
+<body>
+     <script>
+            console.log("Hello, World!");
+            console.log("JavaScript is working!");
+
+            var age = 20;
+            age = 30;
+            var age = 40;
+            console.log("Age is: " + age);
+
+            let name = "JavaScript";
+            name = "Python";
+            name = "C++";
+            console.log("Name is: " + name);
+
+
+
+
+            const pan = "kumar";
+            console.log("Pan is: " + pan);
+
+
+
+
+            let username = "John";
+            let password = "12345";
+            if (username === "John" && password === "12345") {
+                console.log("Login successful!");
+            } else {
+                console.log("Invalid credentials!");
+            }
+
+
+
+
+            function student(name, college='sece') {
+                console.log("Hello, " + name + " from " + college);
+            }
+            student('sneha');
+            student('kumar');
+            student('priya');
+
+            function employee(name, company, college='sece') {
+                console.log("Hello, " + name + " from " + company + " and college is " + college);
+            }
+            employee('Alice', 'Google');
+            employee('Bob', 'Microsoft');
+            employee('Charlie', 'Amazon');
+
+            let data1 = function(){
+                return "hello javascript";
+            }
+            console.log(data1());
+
+
+
+
+            // Arrow function
+            let data2 = (a,b) => {
+                //return "hello arrow function";
+                return a*b;
+            }
+            console.log(data2(2,4));
+    // in function passing the another function as argument is a callback function
+
+
+
+
+    function sece(callback){
+        console.log("welcome from sece");
+        callback();
+    }
+    function stud(){
+        console.log("Display Student Details");
+    }
+    sece(stud);
+    // function of whatsapp and notification calling it back
+    function whatsapp(callback){
+        console.log("Welcome to whatsapp");
+        callback();
+    }
+    function notification(){
+        console.log("you have a new message");
+    }
+    whatsapp(notification);
+
+
+
+    //promise , resolve and reject in api fetching
+    let fetch_api = new Promise(function(resolve, reject) {
+        let api = true;
+        if (api) {
+            resolve("API fetched successfully");
+        } else {
+            reject("API fetching failed");
+        }
+    });
+    console.log(fetch_api);
+    fetch_api.then(data => console.log(data));
+
+    let fetch_order = new Promise(function(resolve, reject) {
+        let order_received = true;
+        console.log("Order status");
+        if (order_received) {
+            setTimeout(() => {
+                resolve("Order placed successfully");
+            }, 2000);
+        } else {
+            setTimeout(() => {
+                reject("Order placement failed");
+            }, 2000);
+        }
+    });
+    console.log(fetch_order);
+    fetch_order.then(data => console.log(data));
+    </script>
+</body>
+</html> 
