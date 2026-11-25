@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY-2 Training</title>
+</head>
+<body>
+    <script>
+        let emp = [
+        {
+            ID: 101,
+            name: "john",
+            salary: 50000,
+            skills: ["javascript", "python", "java"]
+        },
+        {
+            ID: 102,
+            name: "jane",
+            salary: 60000,
+            skills: ["html", "css", "javascript"]
+        },
+        {
+            ID: 103,
+            name: "Rin",
+            salary: 70000,
+            skills: ["c++", "java", "python"],
+            company:{
+                c1: "TCS",
+                c2: "Infosys",
+                c3: "Wipro"
+            }
+
+        }
+    ];
+    console.log(emp);
+    console.log(emp[0].name);
+    console.log(emp[1].skills[2]);
+    console.log(emp[0].skills[1]);
+    console.log(emp[2].company.c1);
+
+
+
+    // JSON.stringify() method converts a JavaScript object or value to a JSON string.
+    //object to string conversion
+    let stringify_data = JSON.stringify(emp);
+    console.log(stringify_data);
+
+
+    //string to object conversion
+    let parse_data = JSON.parse(stringify_data);
+    console.log(parse_data);
+
+
+//shallow copy using spread operator
+    let copied_data = [...emp];
+    copied_data.salary = 80000;
+    console.log("Original data", emp);
+    console.log("Copied data", copied_data);
+    copied_data[2].company.c1 = "Amazon";
+   
+    
+//deep copy using JSON.parse() and JSON.stringify()
+    let deep_copied_data = JSON.parse(JSON.stringify(emp));
+    deep_copied_data[2].company.c1 = "Flipkart";
+    console.log("Deep copied data", deep_copied_data);
+    
+//other way to deep copy using structuredClone() method
+    let structured_clone_data = structuredClone(emp);
+    structured_clone_data[2].company.c1 = "Google";
+    console.log("Structured clone data", structured_clone_data);
+
+    //other way to deep copy using lodash library
+    const _ = require('lodash');
+    let lodash_clone_data = _.cloneDeep(emp);
+    lodash_clone_data[2].company.c1 = "Microsoft";
+    console.log("Lodash clone data", lodash_clone_data);
+
+    //other way to deep copy using jQuery library
+    let jquery_clone_data = $.extend(true, [], emp);
+    jquery_clone_data[2].company.c1 = "Facebook";
+    console.log("jQuery clone data", jquery_clone_data);
+
+    </script>
+</body>
+</html>
