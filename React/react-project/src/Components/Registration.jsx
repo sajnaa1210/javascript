@@ -13,6 +13,9 @@ function Registration() {
 
     const [editindex, seteditindex] = useState(null);
 
+    const [message, setmessage] = useState('');
+    const [messagetype, setmessagetype] = useState('');
+
     function handlechange(e) {
         setformdata({
             ...formdata,
@@ -25,14 +28,18 @@ function Registration() {
 
         if (editindex === null) {
             setdata([...data, formdata]);
-            alert("Form Submitted");
+
+            setmessage("Form Submitted Successfully!");
+            setmessagetype("blue");
         }
         else {
             const updateddata = [...data];
             updateddata[editindex] = formdata;
             setdata(updateddata);
             seteditindex(null);
-            alert("Data Updated");
+
+            setmessage("Data Updated Successfully!");
+            setmessagetype("green");
         }
 
         setformdata({
@@ -50,6 +57,9 @@ function Registration() {
     function handledelete(index) {
         const updateddata = data.filter((item, i) => i !== index);
         setdata(updateddata);
+
+        setmessage("Row Deleted Successfully!");
+        setmessagetype("red");
     }
 
     return (
@@ -58,6 +68,16 @@ function Registration() {
             <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
                 Registration Form
             </h2>
+
+            {message && (
+                <p className={`text-center p-3 m-3 rounded font-bold
+                    ${messagetype === 'green' ? 'bg-green-100 text-green-700' : ''}
+                    ${messagetype === 'blue' ? 'bg-blue-100 text-blue-700' : ''}
+                    ${messagetype === 'red' ? 'bg-red-100 text-red-700' : ''}
+                `}>
+                    {message}
+                </p>
+            )}
 
             <form onSubmit={handlesubmit}
                 className="bg-white p-6 rounded-lg shadow-md w-full max-w-md mx-auto">
