@@ -74,7 +74,7 @@
 import React from 'react'
 import Counter from './Hooks/UseState/Counter'
 import Score from './Hooks/UseState/Score'
-import './App.css'
+//import './App.css'
 import Flipkart from './Components/Flipkart'
 import { MobileContext } from './Components/MobileContext'
 import User from './Hooks/Useeffect/User'
@@ -85,8 +85,11 @@ import Registration from './Components/Registration'
 function App() {
   // const mobile = "Samsung";
   return (
+    <>
+    <center> 
     <div className="app">
       <h1>App Component</h1>
+     
 
       {/* <div className="counter">
    <Counter />
@@ -110,10 +113,12 @@ function App() {
   <hr/>
   <Fetch_Api/>
   <hr/>*/}
-  
-  <Registration/>
 
+  <Registration/>
     </div>
+    </center>
+
+    </>
   )
 }
 

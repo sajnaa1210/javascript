@@ -5,10 +5,13 @@ function Registration() {
 
     const [formdata, setformdata] = useState({
         username: '',
-        email: ''
+        email: '',
+        number: '',
     })
 
     const [data, setdata] = useState([]);
+
+    const [editindex, seteditindex] = useState(null);
 
     function handlechange(e) {
         setformdata({
@@ -20,21 +23,44 @@ function Registration() {
     function handlesubmit(e) {
         e.preventDefault();
 
-        setdata([...data, formdata]);
+        if (editindex === null) {
+            setdata([...data, formdata]);
+            alert("Form Submitted");
+        }
+        else {
+            const updateddata = [...data];
+            updateddata[editindex] = formdata;
+            setdata(updateddata);
+            seteditindex(null);
+            alert("Data Updated");
+        }
 
         setformdata({
             username: '',
-            email: ''
+            email: '',
+            number: ''
         });
+    }
 
-        alert("Form Submitted");
+    function handleedit(index) {
+        setformdata(data[index]);
+        seteditindex(index);
+    }
+
+    function handledelete(index) {
+        const updateddata = data.filter((item, i) => i !== index);
+        setdata(updateddata);
     }
 
     return (
-        <div>
-            <h2>Registration Form</h2>
+        <div className="min-h-screen bg-gray-100 p-8">
 
-            <form onSubmit={handlesubmit}>
+            <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
+                Registration Form
+            </h2>
+
+            <form onSubmit={handlesubmit}
+                className="bg-white p-6 rounded-lg shadow-md w-full max-w-md mx-auto">
 
                 <input
                     type="text"
@@ -42,45 +68,84 @@ function Registration() {
                     value={formdata.username}
                     onChange={handlechange}
                     placeholder='Enter username'
+                    className="w-full border border-gray-300 p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
                 />
 
-                <br />
-
                 <input
-                    type="text"
+                    type="email"
                     name='email'
                     value={formdata.email}
                     onChange={handlechange}
                     placeholder='Enter Email'
+                    className="w-full border border-gray-300 p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
                 />
 
-                <br />
+                <input
+                    type="number"
+                    name='number'
+                    value={formdata.number}
+                    onChange={handlechange}
+                    placeholder='Enter your number'
+                    className="w-full border border-gray-300 p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                />
 
-                <button type='submit'>Submit</button>
+                <button type='submit'
+                    className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700">
+                    {editindex === null ? 'Submit' : 'Update'}
+                </button>
 
             </form>
 
-            <hr/>
+            <hr className="my-8" />
 
-            <table border="1">
+            <h2 className="text-2xl font-bold text-center mb-4">
+                Registration Details
+            </h2>
+
+            <table className="bg-white w-full border-collapse shadow-md">
+
                 <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Email</th>
+                    <tr className="bg-blue-600 text-white">
+                        <th className="border p-3">Username</th>
+                        <th className="border p-3">Email</th>
+                        <th className="border p-3">Phone Number</th>
+                        <th className="border p-3">Edit</th>
+                        <th className="border p-3">Delete</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {data.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.username}</td>
-                            <td>{item.email}</td>
+                        <tr key={index} className="text-center hover:bg-gray-100">
+
+                            <td className="border p-3">{item.username}</td>
+                            <td className="border p-3">{item.email}</td>
+                            <td className="border p-3">{item.number}</td>
+
+                            <td className="border p-3">
+                                <button
+                                    onClick={() => handleedit(index)}
+                                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                                    Edit
+                                </button>
+                            </td>
+
+                            <td className="border p-3">
+                                <button
+                                    onClick={() => handledelete(index)}
+                                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                                    Delete
+                                </button>
+                            </td>
+
                         </tr>
                     ))}
                 </tbody>
-            </table>
 
-            <hr/>
+            </table>
 
         </div>
     )
