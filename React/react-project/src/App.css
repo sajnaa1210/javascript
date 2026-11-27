@@ -32,3 +32,20 @@ body {
     margin: 0;
     min-height: 100vh;
 }
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+th {
+  background-color: rgb(255, 255, 255);
+}
+

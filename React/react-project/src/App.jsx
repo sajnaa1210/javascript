@@ -4,68 +4,68 @@
 //import Score from "./Hooks/UseState/Score.jsx";
 
 //function Players(props) {
-  //return (
-    //<div className="players">
-    //<h2>List of Players</h2>
+//return (
+//<div className="players">
+//<h2>List of Players</h2>
 
-      //{props.data.map((player) => (
-        //<div key={player.id} className="player-card">
-          //<h3>ID: {player.id}</h3>
-          //<h3>Name: {player.name}</h3>
-         // <h3>Team: {player.team}</h3>
-        //</div>
-     // ))}
-    //</div>
+//{props.data.map((player) => (
+//<div key={player.id} className="player-card">
+//<h3>ID: {player.id}</h3>
+//<h3>Name: {player.name}</h3>
+// <h3>Team: {player.team}</h3>
+//</div>
+// ))}
+//</div>
 //  );
 //}
 
 
 
 //function Data(props) {
-  //console.log(props);
+//console.log(props);
 
-  //return (
-    //<div className="data">
-      //<h2>Data Component</h2>
-      //<h2>College Name: {props.name}</h2>
-    //</div>
-  //);
+//return (
+//<div className="data">
+//<h2>Data Component</h2>
+//<h2>College Name: {props.name}</h2>
+//</div>
+//);
 //}
 
 //function App() {
 
-  //let players_data = [
-    //{
-      //id: 100,
-      //name: "Kohli",
-      //team: "India"
-    //},
-    //{
-      //id: 101,/
-      //name: "Rohit",
-     // team: "India"
-    //},
-    //{
-      //id: 102,
-      //name: "Dhoni",
-     // team: "India"
-    //},
-   
-  //];
+//let players_data = [
+//{
+//id: 100,
+//name: "Kohli",
+//team: "India"
+//},
+//{
+//id: 101,/
+//name: "Rohit",
+// team: "India"
+//},
+//{
+//id: 102,
+//name: "Dhoni",
+// team: "India"
+//},
 
-  //return (
-    //<div className="app">
-     // <h1>This is the App component</h1>
-      //<h2>Welcome to my React project!</h2>
+//];
 
-      //<Home />
-      //<Counter />
-     //<Score />
+//return (
+//<div className="app">
+// <h1>This is the App component</h1>
+//<h2>Welcome to my React project!</h2>
 
-    // <Data name="SECE" />
+//<Home />
+//<Counter />
+//<Score />
 
-      //<Players data={players_data} />
-  // </div>
+// <Data name="SECE" />
+
+//<Players data={players_data} />
+// </div>
 // );
 //}
 
@@ -76,28 +76,44 @@ import Counter from './Hooks/UseState/Counter'
 import Score from './Hooks/UseState/Score'
 import './App.css'
 import Flipkart from './Components/Flipkart'
+import { MobileContext } from './Components/MobileContext'
+import User from './Hooks/Useeffect/User'
+import Fetch_Api from './Components/Fetch_Api'
+import Registration from './Components/Registration'
+
 
 function App() {
-  const mobile = "Samsung";
+  // const mobile = "Samsung";
   return (
     <div className="app">
-  <h1>App Component</h1>
-  
+      <h1>App Component</h1>
 
-  <div className="counter">
+      {/* <div className="counter">
    <Counter />
-  </div>
+  </div> */}
 
-  <hr />
+      <hr />
 
-  <div className="score">
+      {/* <div className="score">
     <Score />
-  </div>
+  </div> */}
 
-  <div className="flipkart">
+      {/*<div className="flipkart">
 <Flipkart mobile={mobile}/>
-  </div>
-</div>
+  </div>*/}
+
+      {/*<MobileContext.Provider value={mobile}>
+      <Flipkart/>
+  </MobileContext.Provider>*/}
+
+  {/*<User/>
+  <hr/>
+  <Fetch_Api/>
+  <hr/>*/}
+  
+  <Registration/>
+
+    </div>
   )
 }
 
