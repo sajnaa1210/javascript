@@ -46,7 +46,7 @@ fs.unlink('Data.txt',()=>{
 })*/}
 
 
-const http = require('http');
+{/*const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
@@ -107,4 +107,25 @@ const server = http.createServer((req, res) => {
 
 server.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
+});*/}
+
+
+const express = require('express');
+
+const PORT = 4000;
+
+const server = express();
+
+server.get('/home', (req, res) => {
+    res.status(200).send("Welcome to home page");
+});
+server.get('/products',(req,res)=>{
+    const product=[{prod_id:100,prod_name:'Mobile'},{
+            prod_id:101,prod_name:'Laptop'
+        }
+    ]
+    res.end(JSON.stringify(product))
+})
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}/`);
 });
