@@ -18,56 +18,73 @@ import Navbar from './Components/Navbar'
 function App() {
   // const mobile = "Samsung";
 
-  return (
+  
+return (
     <>
-      <center>
-        <div className="app">
-          <h1>App Component</h1>
+    <center> 
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
 
-          {/* <div className="counter">
-            <Counter />
-          </div> */}
+            <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md p-6">
 
-          <hr />
+                <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">
+                    App Component
+                </h1>
 
-          {/* <div className="score">
-            <Score />
-          </div> */}
+                {/* <div className="counter">
+                    <Counter />
+                </div> */}
 
-          {/* <div className="flipkart">
-            <Flipkart mobile={mobile}/>
-          </div> */}
+                <hr className="my-5 border-gray-300" />
 
-          {/* <MobileContext.Provider value={mobile}>
-            <Flipkart/>
-          </MobileContext.Provider> */}
+                {/* <div className="score">
+                    <Score />
+                </div> */}
 
-          {/* <User/>
-          <hr/>
-          <Fetch_Api/>
-          <hr/> */}
+                {/* <div className="flipkart">
+                    <Flipkart mobile={mobile}/>
+                </div> */}
 
-          {/*<Registration />*/}
+                {/* <MobileContext.Provider value={mobile}>
+                    <Flipkart/>
+                </MobileContext.Provider> */}
 
+                {/* <User/>
+                <hr/>
+                <Fetch_Api/>
+                <hr/> */}
 
-          <BrowserRouter>
-          <Navbar/>
-          <hr/>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/about' element={<About />} />
-        </Routes>
-      </BrowserRouter>
+                {/* <Registration /> */}
 
+                <BrowserRouter>
+
+                    <div className="bg-green-100 rounded-md p-4">
+
+                        <Navbar />
+
+                    </div>
+
+                    <hr className="my-5 border-gray-300" />
+
+                    <div className="p-4">
+
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='/home' element={<Home />} />
+                            <Route path='/contact' element={<Contact />} />
+                            <Route path='/about' element={<About />} />
+                        </Routes>
+
+                    </div>
+
+                </BrowserRouter>
+
+            </div>
 
         </div>
-      </center>
-
-      
+        </center>
     </>
-  )
+)
+
 }
 
 export default App

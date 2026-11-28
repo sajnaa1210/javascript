@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 
 function Registration() {
+  
 
     const [formdata, setformdata] = useState({
         username: '',
